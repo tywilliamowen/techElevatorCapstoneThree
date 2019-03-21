@@ -16,10 +16,10 @@ body {
 *, ::after, ::before {
 	box-sizing: border-box;
 }
-
-.weather .weatherside:side1,.weather .weatherside:side2{
-	display:inline-block;
+.side1, .side2{
+	
 }
+
 
 .weather:first-child {
 	display: inline-grid;
@@ -145,6 +145,15 @@ body {
     margin-left: -30px;
 }
 
+#voteforpark{
+	margin-right:auto;
+	margin-left: auto;
+	color:white;
+	width:24%;
+	
+	background-color:green;
+}
+
 .homepageParkName p {
 	margin-top: -0.08px;
 }
@@ -174,9 +183,6 @@ body {
   --columns: 8; /* number of columns in the grid system */
   --width-default: 0; /* default width, makes it flexible */
   --width: var(--width-mobile, var(--width-default)); /* width of the element */
-  
-  
-  
   border-radius: 8px;
   padding: 16px;
   flex-basis: calc(var(--width) / var(--columns) * 100%);
@@ -432,6 +438,8 @@ header img{
 .topnav {
   overflow: hidden;
   background-color: #e9e9e9;
+  position: -webkit-sticky; 
+  position: sticky;
 }
 
 .topnav a {

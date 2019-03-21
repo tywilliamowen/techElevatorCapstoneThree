@@ -2,20 +2,19 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
+
 <c:import url="/WEB-INF/jsp/common/header.jsp">
-	<c:param name="pageTitle" value="- Survey" />
+	<c:param name="pageTitle" value="- ${park.parkName}'s Survey" />
 </c:import>
 
 <main class="content column">
-
 <div>
 	<div>
-		<h1>Daily Survey</h1>
-		<p>What is your favorite park! Fill out all of the forms below to
-			see how your park stacks up against our other users favorite National
-			Parks!</p>
+		<h1>Thanks for Choosing ${park.parkName}'s Survey</h1>
+		<p>Please Fill out all of the forms below to see how your park
+			stacks up against our other users favorite National Parks!</p>
 	</div>
-	<c:url var="surveyUrl" value="/survey" />
+	<c:url var="surveyUrl" value="/parksurvey" />
 	<form:form class="pure-form pure-form-aligned" action="${surveyUrl}"
 		method="POST" modelAttribute="survey">
 
@@ -23,10 +22,7 @@
 			<div class="block">
 				<label for="parkCode">Favorite National Park:</label>
 				<form:select path="parkCode">
-					<c:forEach var="park" items="${park}">
-					<c:set scope="session" var="parkcode" value="${fn:toUpperCase(park.parkCode)}"/>
-						<option value="${park.parkCode}">${park.parkName}</option>
-					</c:forEach>
+					<option value="${fn:toUpperCase(park.parkCode)}">${park.parkName}</option>
 				</form:select>
 			</div>
 			<br>

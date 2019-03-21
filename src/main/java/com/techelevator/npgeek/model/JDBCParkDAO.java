@@ -21,12 +21,15 @@ public class JDBCParkDAO implements ParkDAO {
 	public JDBCParkDAO(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
-
+	
 	@Override
 	public List<Park> getAllParks() {
 		List<Park> parks = new ArrayList<Park>(); 
 		
-		String sql ="SELECT parkcode, parkname, state, acreage, elevationinfeet, milesoftrail, numberofcampsites, climate, yearfounded, annualvisitorcount, inspirationalquote, inspirationalquotesource, parkdescription, entryfee, numberofanimalspecies FROM park"; 
+		String sql ="SELECT parkcode, parkname, state, acreage, elevationinfeet, milesoftrail, "
+				+ "numberofcampsites, climate, yearfounded, annualvisitorcount, inspirationalquote, "
+				+ "inspirationalquotesource, parkdescription, entryfee, numberofanimalspecies FROM park "
+				+ "ORDER BY parkname ASC"; 
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql); 
 		
